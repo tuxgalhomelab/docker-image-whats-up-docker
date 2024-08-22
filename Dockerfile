@@ -65,6 +65,7 @@ RUN --mount=type=bind,target=/build,from=builder,source=/release \
 EXPOSE 3000
 
 ENV NODE_ENV=production
+ENV WUD_VERSION="$WHATS_UP_DOCKER_VERSION"
 
 ENV USER=${USER_NAME}
 USER ${USER_NAME}:${GROUP_NAME}
