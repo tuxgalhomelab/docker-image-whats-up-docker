@@ -13,6 +13,7 @@ ARG WHATS_UP_DOCKER_VERSION
 # hadolint ignore=SC1091
 RUN \
     set -E -e -o pipefail \
+    && export HOMELAB_VERBOSE=y \
     # Install build dependencies. \
     && homelab install git \
     && mkdir -p /root/whats-up-docker-build \
@@ -47,6 +48,7 @@ ARG WHATS_UP_DOCKER_VERSION
 
 RUN --mount=type=bind,target=/build,from=builder,source=/release \
     set -E -e -o pipefail \
+    && export HOMELAB_VERBOSE=y \
     # Install dependencies. \
     # && homelab install ${PACKAGES_TO_INSTALL:?} \
     # Create the user and the group. \
