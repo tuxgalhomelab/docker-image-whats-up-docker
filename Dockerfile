@@ -18,11 +18,9 @@ RUN \
     && homelab install git \
     && mkdir -p /root/whats-up-docker-build \
     # Download what's up docker repo. \
-    && git clone \
-        --quiet \
-        --depth 1 \
-        --branch ${WHATS_UP_DOCKER_VERSION:?} \
+    && homelab download-git-repo \
         https://github.com/fmartinou/whats-up-docker \
+        ${WHATS_UP_DOCKER_VERSION:?} \
         /root/whats-up-docker-build \
     && pushd /root/whats-up-docker-build \
     && source "${NVM_DIR:?}/nvm.sh" \
