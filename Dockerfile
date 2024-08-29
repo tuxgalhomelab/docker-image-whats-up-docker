@@ -8,7 +8,7 @@ COPY scripts/start-whats-up-docker.sh /scripts/
 
 ARG WHATS_UP_DOCKER_VERSION
 
-# hadolint ignore=SC1091
+# hadolint ignore=SC1091,SC3044
 RUN \
     set -E -e -o pipefail \
     && export HOMELAB_VERBOSE=y \
@@ -40,6 +40,7 @@ ARG USER_ID
 ARG GROUP_ID
 ARG WHATS_UP_DOCKER_VERSION
 
+# hadolint ignore=SC3040
 RUN --mount=type=bind,target=/build,from=builder,source=/release \
     set -E -e -o pipefail \
     && export HOMELAB_VERBOSE=y \
