@@ -4,8 +4,6 @@ ARG BASE_IMAGE_NAME
 ARG BASE_IMAGE_TAG
 FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG} AS builder
 
-SHELL ["/bin/bash", "-c"]
-
 COPY scripts/start-whats-up-docker.sh /scripts/
 
 ARG WHATS_UP_DOCKER_VERSION
@@ -35,8 +33,6 @@ RUN \
 ARG BASE_IMAGE_NAME
 ARG BASE_IMAGE_TAG
 FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG}
-
-SHELL ["/bin/bash", "-c"]
 
 ARG USER_NAME
 ARG GROUP_NAME
