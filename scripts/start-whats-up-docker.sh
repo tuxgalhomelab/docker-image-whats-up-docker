@@ -14,7 +14,7 @@ start_whats_up_docker () {
     echo
 
     cd /opt/whats-up-docker
-    exec node index | ./node_modules/.bin/bunyan --time local --output long
+    exec node dist/index | ./node_modules/.bin/bunyan --time local --output long
 }
 
 set_umask

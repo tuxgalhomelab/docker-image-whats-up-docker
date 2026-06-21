@@ -23,7 +23,8 @@ RUN \
     && pushd /root/whats-up-docker-build \
     && source "${NVM_DIR:?}/nvm.sh" \
     && pushd ui && npm ci && npm run build && popd \
-    && cp app/package*.json . && npm ci --omit=dev --omit=optional --no-audit --no-fund --no-update-notifier \
+    && cp app/package*.json . && npm ci --include=dev --omit=optional --no-audit --no-fund --no-update-notifier \
+    && pushd app && npm run build && npm prune --omit=dev --no-audit --no-fund --no-update-notifier && popd \
     && cp -rf app /release \
     && cp -rf node_modules /release/ \
     && cp -rf ui/dist /release/ui \
